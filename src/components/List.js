@@ -1,9 +1,18 @@
-// List.propTypes = {
-//   items: PropTypes.array,
-//   toggle: PropTypes.func, // zad 4
-//   remove: ProTypes.func, // zad 5
-//   asyncRemove: PropTypes.func //zad7
-// }
-//
-// export default List;
+import React from "react";
 
+
+
+const List = ({ items = [], toggle, remove,}) => (
+  <ul>
+    {items.map(({ title, done }) => (
+      <li style={{ textDecoration: done ? "line-through" : "none" }}>
+        <span onClick={() => toggle(title)}>{title}</span>
+        <button onClick={() => remove(title)}>Usuń</button>
+        <button>Usuń po 2 sec</button>
+        
+      </li>
+    ))}
+  </ul>
+);
+
+export default List;
